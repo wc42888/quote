@@ -1,13 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Title } from './components';
-import { LIGHT_BLUE } from './typography';
+import { LIGHT_BLUE, LIGHT_GREY } from './typography';
 
 function App() {
   return (
     <Container>
       <Title title="Quick Quote" />
       <Line />
+      <Content />
     </Container>
   );
 }
@@ -20,9 +21,17 @@ const Container = styled.div`
   margin: 10px;
 `;
 
-const Line = styled.hr`
-  margin: 0;
-  border-top: 1pt solid ${LIGHT_BLUE};
+const Line = styled.div`
+  margin-top: 10px;
+  border-top: 2px solid ${LIGHT_BLUE};
+`;
+
+const Content = styled.div`
+  flex: 1;
+  height: 100%;
+  border: 1pt solid ${LIGHT_GREY};
+  margin: 20px 0px;
+  border-radius: 5px;
 `;
 
 export default App;
