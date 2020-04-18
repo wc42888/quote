@@ -1,8 +1,45 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# OFX Quote
 
-## Available Scripts
+OFX quote allows the user to quickly find out the latest quote for their requests
 
-In the project directory, you can run:
+## Responsive
+
+The Current web application works for large as well as small screen
+
+<figure>
+  <img src="./screenshots/full_screen.png" alt="iOS" style="width: 100%">
+  <figcaption>full screen</figcaption>
+</figure>
+
+<figure>
+  <img src="./screenshots/small_screen.png" alt="iOS land" style="width: 100%">
+  <figcaption>small screen</figcaption>
+</figure>
+
+## Things to be improved
+
+- More unit tests code coverage (due to time limite current project has limited coverage)
+
+- CI/CD pipleline
+
+- automated end-to-end tests
+
+## Tech Stack
+
+- React [https://reactjs.org/](https://reactjs.org/)
+- Jest [jest](https://jestjs.io/)
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js
+
+In the project directory, first run
+
+`yarn install` or `npm install`
+
+and then you can run:
 
 ### `yarn start`
 
@@ -14,55 +51,9 @@ You will also see any lint errors in the console.
 
 ### `yarn test`
 
-Launches the test runner in the interactive watch mode.<br />
+Launches the test runner in the interactive watch mode.
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
+## Authors
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- **Chao Wang**
