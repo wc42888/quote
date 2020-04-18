@@ -17,18 +17,21 @@ const MobileInput = ({ required, label, ...inputProps }) => {
     </Label>
   );
 
-  const renderTelecodeOptions = () =>
-    teleCode.map((code) => (
-      <option key={code} value={code}>
-        {code}
-      </option>
-    ));
+  const renderSelect = () => (
+    <StyledSelect>
+      {teleCode.map((code) => (
+        <option key={code} value={code}>
+          {code}
+        </option>
+      ))}
+    </StyledSelect>
+  );
 
   return (
     <Container>
       {renderLabel()}
       <InputSection>
-        <StyledSelect>{renderTelecodeOptions()}</StyledSelect>
+        {renderSelect()}
         <Input {...inputProps} />
       </InputSection>
     </Container>
