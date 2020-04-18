@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import styled from 'styled-components';
 import { Title } from './components';
-import { LIGHT_BLUE, LIGHT_GREY } from './typography';
+import { LIGHT_BLUE } from './typography';
 import QuoteForm from './QuoteForm';
 import Result from './Result';
 import { initialValues, validate } from './utilis';

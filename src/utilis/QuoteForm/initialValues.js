@@ -4,7 +4,7 @@ const initalValues = {
   email: '',
   fromCurrency: 'AUD',
   toCurrency: 'USD',
-  amount: 0,
+  amount: '',
 };
 
 export default initalValues;
