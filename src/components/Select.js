@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import { NORMAL_SIZE } from '../typography';
+import { NORMAL_SIZE, LIGHT_GREY } from '../typography';
 
 export default styled.select`
   border: none;
-  border: 1px solid #cccccc;
+  border: 1px solid ${LIGHT_GREY};
   border-radius: 5px;
   padding: 5px;
   font-size: ${NORMAL_SIZE};

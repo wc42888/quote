@@ -1,10 +1,10 @@
 import styled from 'styled-components';
-import { NORMAL_SIZE } from '../typography';
+import { NORMAL_SIZE, LIGHT_GREY } from '../typography';
 
 export default styled.input`
   flex: 1;
   border: none;
-  border: 1px solid #cccccc;
+  border: 1px solid ${LIGHT_GREY};
   border-radius: 5px;
   padding: 5px;
   line-height: 2em;
