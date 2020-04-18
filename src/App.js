@@ -12,38 +12,42 @@ import { LIGHT_BLUE, LIGHT_GREY } from './typography';
 import { currencies } from './constants';
 
 function App() {
+  const renderQuoteForm = () => (
+    <Form>
+      <Section>
+        <Field type="text" label="First Name" required />
+        <Field type="text" label="Last Name" required />
+      </Section>
+      <Section>
+        <Field type="email" label="Email" required />
+      </Section>
+      <Section>
+        <MobileField label="Telephone/Mobile" />
+      </Section>
+      <Section>
+        <SelectField label="From Curreny" options={currencies} required />
+        <SelectField label="To Curreny" options={currencies} required />
+      </Section>
+      <Section>
+        <Field type="number" label="Amount" required />
+        <FieldContainer />
+      </Section>
+      <ButtonSection>
+        <Button>GET QOUTE</Button>
+      </ButtonSection>
+    </Form>
+  );
+
   return (
     <Container>
       <Title title="Quick Quote" />
       <Line />
-      <Content>
-        <Section>
-          <Field type="text" label="First Name" required />
-          <Field type="text" label="Last Name" required />
-        </Section>
-        <Section>
-          <Field type="email" label="Email" required />
-        </Section>
-        <Section>
-          <MobileField label="Telephone/Mobile" />
-        </Section>
-        <Section>
-          <SelectField label="From Curreny" options={currencies} required />
-          <SelectField label="To Curreny" options={currencies} required />
-        </Section>
-        <Section>
-          <Field type="number" label="Amount" required />
-          <FieldContainer />
-        </Section>
-        <ButtonSection>
-          <Button>GET QOUTE</Button>
-        </ButtonSection>
-      </Content>
+      {renderQuoteForm()}
     </Container>
   );
 }
 
-const Container = styled.div`
+const Container = styled.form`
   display: flex;
   flex: 1;
   height: 100vh;
@@ -56,7 +60,7 @@ const Line = styled.div`
   border-top: 2px solid ${LIGHT_BLUE};
 `;
 
-const Content = styled.div`
+const Form = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
