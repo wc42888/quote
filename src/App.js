@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Title } from './components';
+import { Title, Field } from './components';
 import { LIGHT_BLUE, LIGHT_GREY } from './typography';
 
 function App() {
@@ -8,7 +8,12 @@ function App() {
     <Container>
       <Title title="Quick Quote" />
       <Line />
-      <Content />
+      <Content>
+        <Section>
+          <Field label="First Name" />
+          <Field label="Last Name" />
+        </Section>
+      </Content>
     </Container>
   );
 }
@@ -32,6 +37,12 @@ const Content = styled.div`
   border: 1pt solid ${LIGHT_GREY};
   margin: 20px 0px;
   border-radius: 5px;
+  padding: 20px 0px;
+`;
+
+const Section = styled.div`
+  display: flex;
+  flex: 1;
 `;
 
 export default App;
