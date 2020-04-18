@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Input from './Input';
 import { RED } from '../typography';
 
-const Field = ({ label, required }) => {
+const Field = ({ required, label, ...inputProps }) => {
   const renderRequired = () => (required ? <Required>*</Required> : null);
 
   const renderLabel = () => (
@@ -16,7 +16,7 @@ const Field = ({ label, required }) => {
   return (
     <Container>
       {renderLabel()}
-      <Input />
+      <Input {...inputProps} placeholder={label} />
     </Container>
   );
 };
