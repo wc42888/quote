@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Title, Field, SelectField } from './components';
 import { LIGHT_BLUE, LIGHT_GREY } from './typography';
+import { currencies } from './constants';
 
 function App() {
   return (
@@ -17,8 +18,8 @@ function App() {
           <Field type="email" label="Email" required />
         </Section>
         <Section>
-          <SelectField label="From Curreny" required />
-          <SelectField label="To Curreny" required />
+          <SelectField label="From Curreny" options={currencies} required />
+          <SelectField label="To Curreny" options={currencies} required />
         </Section>
       </Content>
     </Container>

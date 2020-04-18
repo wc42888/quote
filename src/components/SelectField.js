@@ -1,11 +1,10 @@
 import React from 'react';
-import styled from 'styled-components';
 import Select from './Select';
 import Label from './Label';
 import Required from './Required';
 import Container from './FieldContainer';
 
-const SelectField = ({ label, required }) => {
+const SelectField = ({ label, required, options }) => {
   const renderRequired = () => (required ? <Required>*</Required> : null);
 
   const renderLabel = () => (
@@ -19,13 +18,14 @@ const SelectField = ({ label, required }) => {
     <Container>
       {renderLabel()}
       <Select>
-        <Option>1</Option>
-        <Option>2</Option>
+        {options.map((option) => (
+          <option key={option.value} value={option.value}>
+            {option.option}
+          </option>
+        ))}
       </Select>
     </Container>
   );
 };
-
-const Option = styled.option``;
 
 export default SelectField;
