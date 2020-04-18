@@ -1,53 +1,67 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useFormik } from 'formik';
 import styled from 'styled-components';
-import {
-  Title,
-  Field,
-  SelectField,
-  FieldContainer,
-  MobileField,
-  Button,
-} from './components';
+import { Title } from './components';
 import { LIGHT_BLUE, LIGHT_GREY } from './typography';
-import { currencies } from './constants';
+import QuoteForm from './QuoteForm';
+import Result from './Result';
+import { initialValues, validate } from './utilis';
 
 function App() {
-  const renderQuoteForm = () => (
-    <Form>
-      <Section>
-        <Field type="text" label="First Name" required />
-        <Field type="text" label="Last Name" required />
-      </Section>
-      <Section>
-        <Field type="email" label="Email" required />
-      </Section>
-      <Section>
-        <MobileField label="Telephone/Mobile" />
-      </Section>
-      <Section>
-        <SelectField label="From Curreny" options={currencies} required />
-        <SelectField label="To Curreny" options={currencies} required />
-      </Section>
-      <Section>
-        <Field type="number" label="Amount" required />
-        <FieldContainer />
-      </Section>
-      <ButtonSection>
-        <Button>GET QOUTE</Button>
-      </ButtonSection>
-    </Form>
-  );
+  const {
+    values,
+    handleChange,
+    errors,
+    touched,
+    handleBlur,
+    handleSubmit,
+    isSubmitting,
+    resetForm,
+  } = useFormik({
+    initialValues,
+    validate,
+    onSubmit: async (values, { setSubmitting }) => {
+      const { fromCurrency, toCurrency, amount } = values;
+      const response = await fetch(
+        `https://api.ofx.com/PublicSite.ApiService/OFX/spotrate/Individual/${fromCurrency}/${toCurrency}/${amount}?format=json`,
+      );
+      const result = await response.json();
+      setRate(result.CustomerRate);
+      setSubmitting(false);
+    },
+  });
+
+  const [rate, setRate] = useState(null);
+
+  const clearRate = () => setRate(null);
 
   return (
     <Container>
       <Title title="Quick Quote" />
       <Line />
-      {renderQuoteForm()}
+      {rate ? (
+        <Result
+          clearRate={clearRate}
+          resetForm={resetForm}
+          rate={rate}
+          values={values}
+        />
+      ) : (
+        <QuoteForm
+          handleSubmit={handleSubmit}
+          values={values}
+          errors={errors}
+          touched={touched}
+          handleBlur={handleBlur}
+          handleChange={handleChange}
+          isSubmitting={isSubmitting}
+        />
+      )}
     </Container>
   );
 }
 
-const Container = styled.form`
+const Container = styled.div`
   display: flex;
   flex: 1;
   height: 100vh;
@@ -58,29 +72,6 @@ const Container = styled.form`
 const Line = styled.div`
   margin-top: 10px;
   border-top: 2px solid ${LIGHT_BLUE};
-`;
-
-const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  flex: 1;
-  height: 100%;
-  border: 1pt solid ${LIGHT_GREY};
-  margin: 20px 0px;
-  border-radius: 5px;
-  padding: 20px 0px;
-  min-height: 600px;
-`;
-
-const Section = styled.div`
-  display: flex;
-  flex: 1;
-`;
-
-const ButtonSection = styled(Section)`
-  justify-content: center;
-  align-items: center;
 `;
 
 export default App;
