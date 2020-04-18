@@ -13,4 +13,5 @@ export default styled.button.attrs(({ isSubmitting }) => ({
   font-size: ${NORMAL_SIZE};
   color: white;
   outline: none;
+  align-self: center;
 `;
