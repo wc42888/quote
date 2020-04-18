@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Title, Field } from './components';
+import { Title, Field, SelectField } from './components';
 import { LIGHT_BLUE, LIGHT_GREY } from './typography';
 
 function App() {
@@ -10,8 +10,15 @@ function App() {
       <Line />
       <Content>
         <Section>
-          <Field label="First Name" />
-          <Field label="Last Name" />
+          <Field type="text" label="First Name" required />
+          <Field type="text" label="Last Name" required />
+        </Section>
+        <Section>
+          <Field type="email" label="Email" required />
+        </Section>
+        <Section>
+          <SelectField label="From Curreny" required />
+          <SelectField label="To Curreny" required />
         </Section>
       </Content>
     </Container>
