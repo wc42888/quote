@@ -6,6 +6,7 @@ import Required from './Required';
 import Label from './Label';
 import Select from './Select';
 import { teleCode } from '../constants';
+import { SMALL_SCREEN_SIZE } from '../constants';
 
 const MobileInput = ({ required, label, ...inputProps }) => {
   const renderRequired = () => (required ? <Required>*</Required> : null);
@@ -40,10 +41,14 @@ const MobileInput = ({ required, label, ...inputProps }) => {
 
 const InputSection = styled.div`
   display: flex;
+
+  @media (max-width: ${SMALL_SCREEN_SIZE}) {
+    flex: 1;
+  }
 `;
 
 const StyledSelect = styled(Select)`
-  width: 100px;
+  max-width: 100px;
 `;
 
 export default MobileInput;

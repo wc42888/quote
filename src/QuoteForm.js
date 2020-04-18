@@ -9,6 +9,7 @@ import {
 } from './components';
 import { currencies } from './constants';
 import { LIGHT_GREY } from './typography';
+import { SMALL_SCREEN_SIZE } from './constants';
 
 const QuoteForm = ({
   handleSubmit,
@@ -108,7 +109,6 @@ const QuoteForm = ({
 const Form = styled.form`
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   flex: 1;
   height: 100%;
   border: 1pt solid ${LIGHT_GREY};
@@ -121,6 +121,10 @@ const Form = styled.form`
 const Section = styled.div`
   display: flex;
   flex: 1;
+
+  @media (max-width: ${SMALL_SCREEN_SIZE}) {
+    flex-direction: column;
+  }
 `;
 
 export default QuoteForm;
