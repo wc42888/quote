@@ -3,8 +3,9 @@ import Select from './Select';
 import Label from './Label';
 import Required from './Required';
 import Container from './FieldContainer';
+import Error from './Error';
 
-const SelectField = ({ label, required, options }) => {
+const SelectField = ({ label, required, error, options, ...selectProps }) => {
   const renderRequired = () => (required ? <Required>*</Required> : null);
 
   const renderLabel = () => (
@@ -17,13 +18,14 @@ const SelectField = ({ label, required, options }) => {
   return (
     <Container>
       {renderLabel()}
-      <Select>
+      <Select {...selectProps}>
         {options.map((option) => (
           <option key={option.value} value={option.value}>
             {option.option}
           </option>
         ))}
       </Select>
+      <Error>{error}</Error>
     </Container>
   );
 };
